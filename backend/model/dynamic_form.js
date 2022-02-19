@@ -8,21 +8,12 @@ const formSchema = new Schema({
         required: true,
     },
     className: String,
-    style: {
-        backgroundColor: String,
-        width: String,
-        height: String,
-    },
+    style: Object,
     url:{
         type:String,
         required: true,
-
     },
-    method:{
-        type:String,
-        required: true,
-        enum:['post','get','delete','put']
-    },
+   
     attributes: [
         {
             attribute: {

@@ -32,16 +32,8 @@ const attributeSchema = new Schema({
         type:Boolean,
         default:false
     },
-    style:{
-        color: String,
-        backgroundColor:String,
-        fontSize: String,
-        fontWeight: String,
-        fontFamily:String,
-        width: String,
-        height: String,
-    }
-
+    style:Object    
+    
 }, {
     timestamps: true,
 });

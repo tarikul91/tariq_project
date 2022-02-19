@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 //navigation
-import constant from "../navigation/CONSTANT"
 import { Link } from "react-router-dom";
 import { fetchForm } from "feature/allForm"
 const Home = () => {
@@ -13,7 +12,7 @@ const Home = () => {
     console.log(forms.form[0])
     if (forms.status == "loading") {
         return (
-            <div className="home">
+            <div className="container">
                 <div className="d-flex justify-content-center">
                     <div className="spinner-border" role="status">
                         <span className="visually-hidden">Loading...</span>
@@ -23,7 +22,7 @@ const Home = () => {
         )
     }
     return (
-        <div className="home">
+        <div className="container">
             {
                 forms.form.map((f, index) => {
                     return (

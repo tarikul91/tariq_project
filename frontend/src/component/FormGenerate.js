@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 
 const FormGenerate = (props) => {
-    console.log(props)
     return (
         <div>
             <form className={props.className ? props.className : ""} style={props.style} onSubmit={props.onSubmit}>

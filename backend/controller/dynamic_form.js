@@ -5,7 +5,6 @@ module.exports.addFrom = async (req, res, next) => {
     try {
 
         const data = req.body
-        console.log(data)
         if (!data.attributes) {
             return res.status(400).json({ msg: 'Please provide necessary data', status: true, })
         }
