@@ -28,11 +28,11 @@ app.use(bodyParser.json())
 app.use(cors())
 
 //routes
-const usersRouter = require('./route/user');
-const postRouter = require('./route/post');
+const attributeRouter = require("./route/attribute")
+const dynamicForm = require("./route/dynamic_form")
 
-app.use('/api/v1/user', usersRouter);
-app.use('/api/v1/post', postRouter);
+app.use('/api/v1/attribute', attributeRouter);
+app.use('/api/v1/dynamic-form', dynamicForm);
 
 //error handling
 app.use(function (req, res, next) {
