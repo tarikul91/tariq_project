@@ -2,7 +2,7 @@ import React from 'react';
 
 const Label = (props) => {
     return (
-        <label {...props}>
+        <label {...props} data-testid='label'>
             {props.children}
         </label>
     );

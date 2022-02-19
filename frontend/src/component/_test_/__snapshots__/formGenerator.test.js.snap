@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormGenerate 1`] = `
+<div
+  className="form-container"
+  data-testid="form-container"
+>
+  <form
+    className="form"
+    data-testid="form"
+    style={
+      Object {
+        "marginBottom": "5px",
+      }
+    }
+  >
+    <h3
+      className="text-center m-3"
+      data-testid="form-heading"
+    >
+      Login form
+    </h3>
+    <button>
+      Submit
+    </button>
+  </form>
+</div>
+`;

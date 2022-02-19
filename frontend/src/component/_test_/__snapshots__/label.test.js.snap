@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`label snapshot 1`] = `
+<label
+  className="form-label"
+  data-testid="label"
+>
+  Label name
+</label>
+`;

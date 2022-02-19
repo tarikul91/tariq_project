@@ -2,7 +2,7 @@ import React from 'react';
 
 const Button = (props) => {
     return (
-        <button {...props}>
+        <button {...props} data-testid='btn-1'>
             {props.children}
         </button>
     );
