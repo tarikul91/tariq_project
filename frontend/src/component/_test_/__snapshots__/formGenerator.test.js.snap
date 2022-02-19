@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FormGenerate 1`] = `
+exports[`FormGenerate snapshot 1`] = `
 <div
   className="form-container"
   data-testid="form-container"

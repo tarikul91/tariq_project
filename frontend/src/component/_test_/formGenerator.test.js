@@ -3,7 +3,7 @@ import FormGenerator from "component/FormGenerate"
 import renderer from "react-test-renderer"
 afterEach(cleanup)
 
-test('FormGenerate', () => {
+test('FormGenerate without any props', () => {
     render(<FormGenerator></FormGenerator>)
     const container = screen.getByTestId('form-container')
     const form = screen.getByTestId('form')
@@ -13,7 +13,7 @@ test('FormGenerate', () => {
     expect(heading).not.toHaveTextContent()
 })
 
-test('FormGenerate', () => {
+test('FormGenerate with className formName and style', () => {
     render(<FormGenerator
         className="form"
         formName="Login form"
@@ -28,7 +28,7 @@ test('FormGenerate', () => {
     expect(heading).toHaveTextContent("Login form")
 })
 
-test('FormGenerate', async () => {
+test('FormGenerate with children', async () => {
     render(<FormGenerator>
         <button>Submit</button>
     </FormGenerator>)
@@ -37,7 +37,7 @@ test('FormGenerate', async () => {
     expect(form).toContainElement(child)
 })
 
-test('FormGenerate', () => {
+it('FormGenerate snapshot', () => {
     const tree = renderer.create(
         <FormGenerator
             className="form"
