@@ -24,7 +24,71 @@ module.exports.addFrom = async (req, res, next) => {
         next(error)
     }
 }
+module.exports.getById = async (req, res, next) => {
+    try {
 
+        const form_id = req.params.id
+        if (!form_id) {
+            return res.status(400).json({ msg: 'Please provide id', status: false })
+        }
+        const dynamicForm = await DynamicForm.aggregate(
+            [
+                {
+                    $match: {
+                        _id: mongoose.Types.ObjectId(form_id),
+                    }
+                },
+                { $unwind: "$attributes" },
+                {
+                    $lookup:
+                    {
+                        from: 'attributes',
+                        let: { attId: "$attributes.attribute", pos: "$attributes.position" },
+                        pipeline: [
+                            {
+                                $match: {
+                                    $and: [
+                                        {
+                                            $expr: {
+                                                $eq: ["$$attId", "$_id"]
+                                            }
+                                        }
+                                    ]
+                                },
+
+                            }, {
+
+                                $addFields: {
+                                    position: "$$pos"
+                                }
+                            }
+
+                        ],
+                        as: "attribute_details",
+                    },
+                },
+                {$unwind:"$attribute_details"},
+                { $project: { attributes: 0,  } },
+                {
+                    $group:{
+                        _id:"$_id",
+                        formDetail:{$first:"$$ROOT"},
+                        all_attribute_details:{$push:"$attribute_details"}
+                    }
+                }
+            ]
+        )
+        if (dynamicForm != null) {
+            return res.json({ msg: 'Form  found', status: true, data: dynamicForm })
+        }
+        else {
+            return res.status(400).json({ msg: 'Form could not be found.', status: false })
+        }
+    }
+    catch (error) {
+        next(error)
+    }
+}
 module.exports.editById = async (req, res, next) => {
     try {
 
@@ -123,20 +187,12 @@ module.exports.deleteAttribute = async (req, res, next) => {
         next(error)
     }
 }
-module.exports.getById = async (req, res, next) => {
+
+module.exports.getAll = async (req, res, next) => {
     try {
 
-        const form_id = req.params.id
-        if (!form_id) {
-            return res.status(400).json({ msg: 'Please provide id', status: false })
-        }
         const dynamicForm = await DynamicForm.aggregate(
             [
-                {
-                    $match: {
-                        _id: mongoose.Types.ObjectId(form_id),
-                    }
-                },
                 { $unwind: "$attributes" },
                 {
                     $lookup:
@@ -178,22 +234,7 @@ module.exports.getById = async (req, res, next) => {
             ]
         )
         if (dynamicForm != null) {
-            return res.json({ msg: 'Form  found', status: true, data: dynamicForm })
-        }
-        else {
-            return res.status(400).json({ msg: 'Form could not be found.', status: false })
-        }
-    }
-    catch (error) {
-        next(error)
-    }
-}
-module.exports.getAll = async (req, res, next) => {
-    try {
-
-        const dynmcForm = await DynamicForm.find({})
-        if (dynmcForm != null) {
-            return res.json({ msg: 'All Form found ', status: true, data: dynmcForm })
+            return res.json({ msg: 'All Form found ', status: true, data: dynamicForm })
         }
         else {
             return res.status(400).json({ msg: 'All form could not be found.', status: false })

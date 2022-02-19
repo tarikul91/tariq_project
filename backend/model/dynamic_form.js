@@ -9,9 +9,19 @@ const formSchema = new Schema({
     },
     className: String,
     style: {
-        backGroundColor: String,
+        backgroundColor: String,
         width: String,
         height: String,
+    },
+    url:{
+        type:String,
+        required: true,
+
+    },
+    method:{
+        type:String,
+        required: true,
+        enum:['post','get','delete','put']
     },
     attributes: [
         {

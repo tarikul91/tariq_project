@@ -30,9 +30,11 @@ app.use(cors())
 //routes
 const attributeRouter = require("./route/attribute")
 const dynamicForm = require("./route/dynamic_form")
+const todo = require("./route/todo")
 
 app.use('/api/v1/attribute', attributeRouter);
 app.use('/api/v1/dynamic-form', dynamicForm);
+app.use('/api/v1/todo', todo);
 
 //error handling
 app.use(function (req, res, next) {

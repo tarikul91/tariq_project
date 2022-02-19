@@ -11,6 +11,10 @@ const attributeSchema = new Schema({
         },
         required: true
     },
+    name: {
+        type:String,
+        required: true
+    },
     inputType: {
         type: String,
     },
@@ -23,7 +27,6 @@ const attributeSchema = new Schema({
         htmlFor:String,
         labelName:String
     } ,
-    name: String,
     attId: String,
     readOnly:{
         type:Boolean,
@@ -31,7 +34,7 @@ const attributeSchema = new Schema({
     },
     style:{
         color: String,
-        backGroundColor:String,
+        backgroundColor:String,
         fontSize: String,
         fontWeight: String,
         fontFamily:String,
