@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { fetchForm } from "feature/allForm"
 import { useNavigate } from 'react-router-dom';
 import { postReq } from "service/fetchReq";
-
+import { Link } from 'react-router-dom';
 const Form = (props) => {
     const Dispatch = useDispatch()
     const Navigate = useNavigate()
@@ -77,6 +77,7 @@ const Form = (props) => {
                 <h1 className='text-center '>
                     <i className="fa-solid fa-circle-check text-success" style={{ fontSize: "140px" }}></i>
                     <p className='mt-5' onClick={() => Navigate('/home')} style={{ cursor: "pointer" }}>Back</p>
+                    <Link className='mt-5 dark-link' to='/all-todo' style={{ cursor: "pointer", fontSize:"18px" }}>See All Todos</Link>
                 </h1>
             </div>
 

@@ -23,10 +23,7 @@ const attributeSchema = new Schema({
         type: String,
     },
     className: String,
-    label:{
-        htmlFor:String,
-        labelName:String
-    } ,
+    label:String,
     attId: String,
     readOnly:{
         type:Boolean,

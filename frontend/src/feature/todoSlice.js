@@ -1,29 +1,32 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getReq } from "service/fetchReq";
-export const fetchTodoForm = createAsyncThunk('todo/dynamic-form', async (id) => {
-    const response = await getReq('/dynamic-form/get-by-id', id)
+export const fetchTodo= createAsyncThunk('todo/getall', async () => {
+    const response = await getReq('/todo/all')
     return response
 })
 const initialState = {
-    form: {
+    todos: [{
         _id: null,
-        formDetail: null,
-        all_attribute_details: []
-    }
+        userName: '',
+        title: '',
+        description:''
+    }],
+    status: 'idle',
+    error: null,
 }
 const TodoSlice = createSlice({
     name: 'todo',
     initialState,
     extraReducers(builder) {
         builder
-            .addCase(fetchTodoForm.pending, (state, action) => {
+            .addCase(fetchTodo.pending, (state, action) => {
                 state.status = 'loading'
             })
-            .addCase(fetchTodoForm.fulfilled, (state, action) => {
-                state.isLoggedIn = true
-                state.form = action.payload.data[0]
+            .addCase(fetchTodo.fulfilled, (state, action) => {
+                state.status = 'idle'
+                state.todos = action.payload.data
             })
-            .addCase(fetchTodoForm.rejected, (state, action) => {
+            .addCase(fetchTodo.rejected, (state, action) => {
                 state.status = 'failed'
                 state.error = action.payload
             })

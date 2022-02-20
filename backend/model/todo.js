@@ -3,17 +3,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const todoSchema = new Schema({
-   name:{
+   userName:{
        type:String,
    },
-   todoName:{
+   title:{
     type:String,
    },
-   isComplete:{
-       type:Boolean,
-       default:false
+   description:{
+       type:String
    },
-   when:{
+   date:{
        type:Date
    },
   

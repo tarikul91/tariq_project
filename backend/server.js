@@ -9,7 +9,8 @@ const morgan = require('morgan')
 require('dotenv').config();
 
 //db
-const uri = process.env.DB_URI
+// const uri = process.env.DB_URI
+const uri =   `mongodb+srv://Mti:Md786786@cluster0.n4jhp.mongodb.net/Tariq_test?retryWrites=true&w=majority`
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const connection = mongoose.connection;
 connection.once('open', () => {
