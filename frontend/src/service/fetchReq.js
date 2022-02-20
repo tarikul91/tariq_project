@@ -18,6 +18,7 @@ export const postReq = async(url,data,params=null,token=null) =>{
         .catch(er =>{
             if(er){
                 throw er
+                // Promise.reject(er)
             }
         })
         return request

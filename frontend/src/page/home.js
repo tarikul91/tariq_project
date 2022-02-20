@@ -9,7 +9,7 @@ const Home = () => {
     useEffect(() => {
         Dispatch(fetchForm())
     }, [Dispatch])
-    console.log(forms.form[0])
+    console.log(forms.status)
     if (forms.status == "loading") {
         return (
             <div className="container">
@@ -18,6 +18,13 @@ const Home = () => {
                         <span className="visually-hidden">Loading...</span>
                     </div>
                 </div>
+            </div>
+        )
+    }
+    if (forms.status == "failed") {
+        return (
+            <div className='container'>
+                <h1 className='display-4 text-danger perfect-center'>Oops! Something wrong</h1>
             </div>
         )
     }

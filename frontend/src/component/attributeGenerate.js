@@ -27,9 +27,9 @@ const AttributeGenerate = ({ data, ...rest }) => {
                 type: data.inputType,
             }
             return (
-                <div className='my-3'>
+                <div className='my-3' data-testid='input-container'>
                     {data.label &&
-                        <Label htmlFor={data.label.htmlFor}>{data.label.labelName}</Label>
+                        <Label htmlFor={data.attId}>{data.label}</Label>
                     }
                     <Input {...rest} {...prop2}></Input>
                 </div>
@@ -40,7 +40,6 @@ const AttributeGenerate = ({ data, ...rest }) => {
                 id: data.attId,
                 name: data.name,
                 style: data.style,
-                readOnly: data.readOnly,
             }
             return <Text {...rest} {...prop3}>{data.textContent}</Text>
         default:

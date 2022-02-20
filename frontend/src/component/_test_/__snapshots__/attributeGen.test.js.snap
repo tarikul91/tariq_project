@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AttributeGenerate button snapshot 1`] = `
+<button
+  className="mb-4"
+  data-testid="btn-1"
+  id="sample-id"
+  name="submit"
+  readOnly={true}
+  style={
+    Object {
+      "marginTop": "10px",
+    }
+  }
+>
+  submit
+</button>
+`;
+
+exports[`AttributeGenerate input snapshot 1`] = `
+<div
+  className="my-3"
+  data-testid="input-container"
+>
+  <label
+    data-testid="label"
+    htmlFor="sample-id"
+  >
+    user name
+  </label>
+  <input
+    className="mb-4"
+    data-testid="input-1"
+    id="sample-id"
+    name="sample-name"
+    placeholder="enter name"
+    readOnly={true}
+    style={
+      Object {
+        "marginTop": "10px",
+      }
+    }
+    type="text"
+  />
+</div>
+`;
+
+exports[`AttributeGenerate text snapshot 1`] = `
+<p
+  className="text-danger"
+  data-testid="text"
+  id="text-id"
+  name="some-name"
+  style={
+    Object {
+      "fontSize": "16px",
+    }
+  }
+>
+  lorem ipsum
+</p>
+`;

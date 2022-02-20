@@ -2,7 +2,7 @@ import React from 'react';
 
 const Text = (props) => {
     return (
-        <p {...props}>
+        <p {...props} data-testid='text'>
             {props.children}
         </p>
     );

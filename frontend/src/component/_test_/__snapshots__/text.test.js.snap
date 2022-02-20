@@ -3,6 +3,7 @@
 exports[`text snapshot 1`] = `
 <p
   className="text-danger"
+  data-testid="text"
 >
   Lorem ipsum
 </p>
