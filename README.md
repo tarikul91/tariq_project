@@ -18,7 +18,7 @@ if dynamic attribute component is input than value will change by react state an
 if attribute component is submit button then click on this form will be submit.
 When you submit, form will be upload through provided url by form. Upload form data property will be attribute name and value will be component value.
 Click see all todos to see uploaded form data. Todo added for sample to use dynmaic form.
-###  Attribute Details
+##  Attribute Details
 A single attribute can be create with id, class, style, input, text, button, style label, name, placeholder,readOnly.
 Any time you can change this attributes any properties with API. And there all linked form with this attribute also be changed. 
 #### API
