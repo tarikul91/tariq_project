@@ -88,8 +88,7 @@ style:{
 url: Form dubmit url for post request,
 attributes:[{
 attribute: attributeID
-position:{ 1
-    }
+position: 1
 }]
 ```
 - ``formName``: Name of the Form  `Required`
